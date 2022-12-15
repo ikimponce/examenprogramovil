@@ -1,0 +1,40 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="end">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Users</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-button expand="full" [routerLink]="['/users/add']">
+    <span style="display: inline-block; margin-right: 10px">Nuevo</span>
+    <ion-icon name="person-add-outline"></ion-icon>
+  </ion-button>
+
+  <div>
+    <ion-list>
+      <ion-item *ngFor="let item of usersData">
+        <ion-label>
+          <h2>
+            {{ item.last_name }} {{ item.mothers_last_name }} {{
+            item.first_name}}
+          </h2>
+          <h3>{{item.email}}</h3>
+        </ion-label>
+        <ion-icon
+          name="chevron-forward-outline"
+          (click)="goUpdate(item.id)"
+        ></ion-icon>
+      </ion-item>
+    </ion-list>
+
+    <ion-infinite-scroll (ionInfinite)="onIonInfinite($event)">
+      <ion-infinite-scroll-content
+        loadingText="Please wait..."
+        loadingSpinner="bubbles"
+      ></ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+  </div>
+</ion-content>

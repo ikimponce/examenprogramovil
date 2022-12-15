@@ -1,0 +1,30 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="end">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Clima</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Clima</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div id="container">
+    <strong class="capitalize" *ngIf="descripcion"
+      >{{ descripcion|titlecase}}</strong
+    >
+
+    <div *ngIf="icon">
+      <img [src]="icon" />
+    </div>
+
+    <div *ngIf="temperatura">{{ temperatura}}°C</div>
+
+    <div *ngIf="lugar">{{ lugar |titlecase}}</div>
+  </div>
+</ion-content>

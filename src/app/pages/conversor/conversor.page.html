@@ -1,0 +1,39 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="end">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Conversor</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-label>CLP:</ion-label>
+    <ion-input
+      (keypress)="numberOnly($event)"
+      [(ngModel)]="pesos"
+      pattern="[1-9]{1}[0-9]{9}"
+    ></ion-input>
+  </ion-item>
+  <ion-button
+    expand="full"
+    type="button"
+    (click)="onConversor()"
+    [disabled]="!(pesos>0)"
+    >Convertir Monedas</ion-button
+  >
+
+  <br />
+  <div *ngIf="show">
+    <ion-item>
+      <ion-label>Dolares:</ion-label>
+      <ion-label>{{dolares| number:'1.0-2'}}</ion-label>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Euros:</ion-label>
+      <ion-label>{{euros| number:'1.0-2'}}</ion-label>
+    </ion-item>
+  </div>
+</ion-content>

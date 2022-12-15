@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form (ngSubmit)="login()" [formGroup]="credentials">
+    <ion-item class="ion-margin-bottom">
+      <ion-input
+        type="email"
+        placeholder="Email"
+        formControlName="email"
+      ></ion-input>
+      <ion-note
+        slot="error"
+        *ngIf="(email?.dirty || email?.touched) && email?.errors"
+        >Formato email no válido.</ion-note
+      >
+    </ion-item>
+
+    <ion-item class="ion-margin-bottom">
+      <ion-input
+        type="password"
+        placeholder="Password"
+        formControlName="password"
+      ></ion-input>
+      <ion-note
+        slot="error"
+        *ngIf="(password?.dirty || password?.touched) && password?.errors"
+        >El password debe contener al menos 6 caracteres.</ion-note
+      >
+    </ion-item>
+
+    <ion-button expand="full" type="submit" [disabled]="!credentials.valid"
+      >Login</ion-button>
+  </form>
+
+  <ion-button expand="full" (click)="redirectRegister()">Registro</ion-button>
+
+</ion-content>

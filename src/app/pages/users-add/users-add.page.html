@@ -1,0 +1,140 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button
+        routerDirection="root"
+        defaultHref="users"
+      ></ion-back-button>
+    </ion-buttons>
+    <ion-title>Users</ion-title>
+    <ion-buttons slot="end">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<!-- Back button with a default href -->
+
+<ion-content>
+  <div class="container">
+    <h1>New User</h1>
+
+    <form (ngSubmit)="createUser()" [formGroup]="formdata">
+      <ion-item>
+        <ion-label position="floating">R.U.T.</ion-label>
+        <ion-input
+          type="text"
+          placeholder="Rut"
+          formControlName="rut"
+        ></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Nombre</ion-label>
+        <ion-input
+          type="text"
+          placeholder="Nombre"
+          formControlName="first_name"
+        ></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Apellido Paterno</ion-label>
+
+        <ion-input
+          type="text"
+          placeholder="Apellido Paterno"
+          formControlName="last_name"
+        ></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Apellido Materno</ion-label>
+        <ion-input
+          type="text"
+          placeholder="Apellido Materno"
+          formControlName="mothers_last_name"
+        ></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Email</ion-label>
+        <ion-input
+          type="email"
+          placeholder="Email"
+          formControlName="email"
+        ></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Dirección</ion-label>
+        <ion-input
+          type="text"
+          placeholder="Direccion"
+          formControlName="direccion"
+        ></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Teléfono</ion-label>
+        <ion-input
+          type="text"
+          placeholder="Telefono"
+          formControlName="telefono"
+        ></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Password</ion-label>
+        <ion-input
+          type="password"
+          placeholder="Password"
+          formControlName="password"
+        ></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Confirm Password</ion-label>
+        <ion-input
+          type="password"
+          placeholder="Confirm Password"
+          formControlName="confirm_password"
+        ></ion-input>
+      </ion-item>
+
+      <ion-list>
+        <ion-radio-group formControlName="role">
+          <ion-list-header style="font-size: 16px"> Rol</ion-list-header>
+
+          <ion-item>
+            <ion-label>Adm</ion-label>
+            <ion-radio value="ADM"></ion-radio>
+          </ion-item>
+          <ion-item>
+            <ion-label>User</ion-label>
+            <ion-radio value="USER"></ion-radio>
+          </ion-item>
+        </ion-radio-group>
+      </ion-list>
+
+      <ion-list>
+        <ion-radio-group formControlName="active">
+          <ion-list-header style="font-size: 16px"> Activo</ion-list-header>
+
+          <ion-item>
+            <ion-label>Si</ion-label>
+            <ion-radio value="true"></ion-radio>
+          </ion-item>
+          <ion-item>
+            <ion-label>No</ion-label>
+            <ion-radio value="false"></ion-radio>
+          </ion-item>
+        </ion-radio-group>
+      </ion-list>
+
+      <ion-button expand="full" type="submit" [disabled]="!formdata.valid"
+        >Add Usuario</ion-button
+      >
+    </form>
+  </div>
+</ion-content>
